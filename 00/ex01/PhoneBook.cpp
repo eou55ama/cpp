@@ -22,10 +22,11 @@ void PhoneBook::print(int i)
     std::cout << "darkestsecret : " << Contacts[i].get_darkestsecret() << std::endl;
 }
 
-std::string PhoneBook::print_block(std::string str)
+std::string PhoneBook::print_block(std::string str)const
 {
-   if (strlen(str) > 10 )
-        return()
+   if (str.length() > 10 )
+        return(str.substr(0,9) + ".");
+    return(str);
 } 
 
 void PhoneBook:: display(int i)

@@ -30,3 +30,9 @@ std::string Contact:: get_lastname(){
 std::string Contact:: get_nickname(){
     return(nickname);
 }
+std::string Contact:: get_phonenumber(){
+    return(phonenumber);
+}
+std::string Contact:: get_darkestsecret(){
+    return(darkestsecret);
+}

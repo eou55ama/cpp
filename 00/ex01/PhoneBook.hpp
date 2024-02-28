@@ -2,6 +2,7 @@
 #define PHONEBOOK_H
 
 #include "Contact.hpp"
+#include <cstring>
 class PhoneBook
 {
     private :
@@ -9,6 +10,8 @@ class PhoneBook
     public :
         void print(int i);
         void add(std:: string *args,int i);
+        void display(int i);
+        std::string print_block(std::string str);
 };
 
 #endif

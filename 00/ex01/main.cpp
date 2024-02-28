@@ -6,7 +6,7 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 22:12:38 by eoussama          #+#    #+#             */
-/*   Updated: 2024/02/23 17:22:24 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:44:30 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int valid_ind(const char *str,int i)
 {
-    if (strlen(str) != 1 || !isdigit(str[0]))
+    if (strlen(str) != 1 || !isdigit(str[0]) || str[0] > '7') 
         return(std::cout << "invalid index \n",1);
     return(0);
 }
@@ -32,7 +32,8 @@ int take_ind(int i)
     while(b)
     {
     std::cout << "Enter an index : ";
-    std::getline(std::cin ,num);
+    if (std::getline(std::cin ,num) == false)
+        exit(1);
     str = num.c_str();
     b = valid_ind(str,i);
     }
@@ -51,32 +52,18 @@ void set_empty(std :: string *args)
 
 void take_args(std::string *args)
 {
+    std::string str[5] = {"first name : ","last name: ","nickname : ","phone number : ","darkest secret : "};
     set_empty(args);
-        while (args[0].empty())
+    int i = 0;
+    while(i < 5){
+        while (args[i].empty())
         {
-            std::cout << "Enter first name : ";
-            std::getline(std::cin ,args[0]);
+            std::cout << "Enter " << str[i];
+            if (std::getline(std::cin ,args[i]) == false)
+                exit(1);
         }
-        while (args[1].empty())
-        {
-            std::cout << "Enter last name: ";
-            std::getline(std::cin ,args[1]);
-        }
-        while (args[2].empty())
-        {
-            std::cout << "Enter nickname : ";
-            std::getline(std::cin ,args[2]);
-        }
-         while (args[3].empty())
-        {
-            std::cout << "Enter phone number : ";
-            std::getline(std::cin ,args[3]);
-        }
-        while (args[4].empty())
-        {
-            std::cout << "Enter darkest secret : ";
-            std::getline(std::cin ,args[4]);
-        }
+        i++;
+    }
 }  
 
 
@@ -90,9 +77,11 @@ int main ()
     while ("EXIT" != buf)
     {
         std::cout << "-> : ";
-        std::getline (std::cin,buf);
+        if (std::getline (std::cin,buf) == false)
+            exit(1);
         if ("SEARCH" == buf)
         {
+            PhoneBook.display(i);
             x = take_ind(i);
             if ( x < i)
                 PhoneBook.print(x);
@@ -101,8 +90,8 @@ int main ()
         {
             take_args(args);
             if (i < 7){
-            PhoneBook.add(args,i);
-            i++;
+                PhoneBook.add(args,i);
+                i++;
             }
             else
                 PhoneBook.add(args,0);

@@ -6,7 +6,7 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 22:12:38 by eoussama          #+#    #+#             */
-/*   Updated: 2024/02/24 11:44:30 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/03/03 13:26:05 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int valid_ind(const char *str,int i)
+int valid_ind(const char *str)
 {
     if (strlen(str) != 1 || !isdigit(str[0]) || str[0] > '7') 
         return(std::cout << "invalid index \n",1);
     return(0);
 }
-int take_ind(int i)
-{
+int take_ind()
+{ 
     std ::string num;
     const char *str;
     int b;
     b = 1;
     while(b)
     {
-    std::cout << "Enter an index : ";
+    std::cout << "Enter an index 0 -> 7: ";
     if (std::getline(std::cin ,num) == false)
         exit(1);
     str = num.c_str();
-    b = valid_ind(str,i);
+    b = valid_ind(str);
     }
     return(atoi(str));
 }
@@ -82,7 +82,7 @@ int main ()
         if ("SEARCH" == buf)
         {
             PhoneBook.display(i);
-            x = take_ind(i);
+            x = take_ind();
             if ( x < i)
                 PhoneBook.print(x);
         }

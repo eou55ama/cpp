@@ -15,6 +15,7 @@ void Contact:: set_phonenumber(std::string str){
 void Contact:: set_darkestsecret(std::string str){
     darkestsecret = str;
 }
+
 void Contact:: set_ind(int x){
     ind = x;
 }

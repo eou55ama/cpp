@@ -24,8 +24,9 @@ void PhoneBook::print(int i)
 
 std::string PhoneBook::print_block(std::string str)
 {
-   if (strlen(str) > 10 )
-        return()
+   if (str.length() > 10 )
+        return(str.substr(0,9) + ".");
+    return(str);
 } 
 
 void PhoneBook:: display(int i)
@@ -34,8 +35,8 @@ void PhoneBook:: display(int i)
     std::cout << "------------- PHONBOOK CONTACTS -------------\n";
     while(x < i)
     {
-        std::cout << "|" << std::setw(10) << x << "|" << std::setw(10) << Contacts[x].get_firstname() << "|" << std::setw(10)
-        << Contacts[x].get_lastname() << "|" << std::setw(10) << Contacts[x].get_nickname() << "|" << std::endl;
+        std::cout << "|" << std::setw(10) << x << "|" << std::setw(10) << print_block(Contacts[x].get_firstname()) << "|" << std::setw(10)
+        << print_block(Contacts[x].get_lastname()) << "|" << std::setw(10) << print_block(Contacts[x].get_nickname()) << "|" << std::endl;
         x++;
     }
 }

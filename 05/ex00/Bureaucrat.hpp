@@ -6,7 +6,7 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:20:40 by eoussama          #+#    #+#             */
-/*   Updated: 2024/03/31 12:51:52 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/10/07 05:17:59 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Bureaucrat {
         int grade;
 
     public :
-        Bureaucrat();
         Bureaucrat(std::string Name,int Grade);
+        Bureaucrat();
         Bureaucrat(const Bureaucrat& copy);
         ~Bureaucrat();
         Bureaucrat& operator=(const Bureaucrat& obj);

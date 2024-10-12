@@ -6,7 +6,7 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:29:56 by eoussama          #+#    #+#             */
-/*   Updated: 2024/03/31 12:51:02 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/10/07 05:21:07 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void Bureaucrat::decrement_grade()
 
 std::ostream& operator << (std::ostream& out ,const Bureaucrat& obj)
 {
-    out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return(out);
 }

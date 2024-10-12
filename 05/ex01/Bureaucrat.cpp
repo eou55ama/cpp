@@ -6,7 +6,7 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:29:56 by eoussama          #+#    #+#             */
-/*   Updated: 2024/04/04 08:09:49 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/10/07 05:31:18 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void Bureaucrat::signForm(Form& form){
         form.beSigned(*this);
         std::cout << this->getName() << " signed " << form.getName() << std::endl;
     }
-    catch(Form::GradeTooHighException &e)
+    catch(Form::GradeTooLowException &e)
     {
-        std::cout << this->getName() << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cout << this->getName() << " coulnd't sign " << form.getName() << " because " << e.what() << "." << std::endl;
     }
         
 }

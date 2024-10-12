@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main (int argc, char **argv)
 {
@@ -24,9 +25,13 @@ int main (int argc, char **argv)
 	try {
         srand(time(0));
         Bureaucrat oussama("oussama", 5);
-        PresidentialPardonForm form1("laarbi");
-        oussama.signForm(form1);
-        oussama.executeForm(form1);
+		Intern intern;
+
+        AForm *president = intern.makeForm("PresidetialPardonForm", "laarbi");
+		if(!president)
+			return 1;
+        oussama.signForm(*president);
+        oussama.executeForm(*president);
     }
 	catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;

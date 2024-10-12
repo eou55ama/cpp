@@ -6,7 +6,7 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 12:58:47 by eoussama          #+#    #+#             */
-/*   Updated: 2024/04/04 08:13:50 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:15:02 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Form {
             public:
             virtual const char* what() const throw()
             {
-                return("Too High");
+                return("grade Too High");
             }
         };
         class GradeTooLowException: public std::exception
@@ -45,7 +45,7 @@ class Form {
             public:
             virtual const char *what() const throw()
             {
-                return("Too Low");
+                return("grade Too Low");
             }
         };
 };

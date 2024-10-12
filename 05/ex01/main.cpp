@@ -6,19 +6,29 @@
 /*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:10:07 by eoussama          #+#    #+#             */
-/*   Updated: 2024/04/04 08:07:31 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:55:21 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 int main(void)
 {
     try
     {
-     Bureaucrat a("oussama",0);
-     std::cout << a << std::endl; 
-     Bureaucrat b("ma",180);
+     Bureaucrat mowdaf("oussama",1);
+     std::cout << mowdaf << std::endl;
+     Form wati9a("wkala",88,0);
+     mowdaf.signForm(wati9a);
+     std::cout << wati9a << std::endl;
+    }
+    catch (Form::GradeTooHighException &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    catch (Form::GradeTooLowException &e)
+    {
+        std::cout << e.what() << std::endl;
     }
     catch (Bureaucrat::GradeTooHighException &e)
     {
